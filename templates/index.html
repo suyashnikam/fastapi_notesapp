@@ -34,17 +34,17 @@
       <h1>
         Start adding your notes to DB
       </h1>
-      <form>
+      <form action="/" method="post">
   <div class="mb-3">
     <label for="title" class="form-label">Note Title</label>
-    <input type="text" class="form-control" id="title" aria-describedby="titleHelp">
+    <input type="text" class="form-control" name="title" aria-describedby="titleHelp">
   </div>
   <div class="mb-3">
     <label for="desc" class="form-label">Note Description</label>
-    <input type="text" class="form-control" id="desc">
+    <input type="text" class="form-control" name="desc">
   </div>
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <input type="checkbox" class="form-check-input" name="important" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
@@ -53,9 +53,13 @@
 
     <div class="container">
       <h2>Your Notes</h2>
+      {% if newDocs is defined %}
+        No notes to display
+      {% endif %}
       {% for item in newDocs %}
         <div>
-          {{ item.note }}
+          {{ item.title}}
+          {{item.desc}}
         </div>
     {% endfor %}
 

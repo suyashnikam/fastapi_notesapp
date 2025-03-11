@@ -16,11 +16,16 @@ async def read_item(request: Request):
     for doc in docs:
         newDocs.append({
             "id": doc["_id"],
-            "note": doc["note"]
+            "title": doc["title"],
+            "desc": doc["desc"]
         })
 
     return templates.TemplateResponse("index.html", { "request": request, "newDocs": newDocs})
 
-@note.get("/items/{item_id}")
-async def read_item(item_id: int):
-    return {"item_id": item_id}
+@note.post("/")
+async def create_item(request: Request):
+    form = await request.form()
+    formDict = dict(form)
+    formDict["important"] = True if formDict.get("important") == "on" else False
+    note= conn.notes.notes.insert_one(formDict)
+    return {"success":True}
