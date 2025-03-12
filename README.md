@@ -66,6 +66,8 @@ pip install -r requirements.txt
 1. **Login to MongoDB Atlas** via the web application.
 2. **Create a new free cluster** and wait for the setup to complete.
    ![MongoDB Cluster](https://github.com/user-attachments/assets/ea9110cf-8ff7-45a9-a28c-ee3902eaa9ee)
+
+3. Dont forget to add current IP address in network access section.
 4. **Connect to the cluster**:
    - Click on the **Connect** button as shown in above image.
      ![MongoDB Compass](https://github.com/user-attachments/assets/d7c9669d-bff9-45c9-b8af-96fa5e63967d)
